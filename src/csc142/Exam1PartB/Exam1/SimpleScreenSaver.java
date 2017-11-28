@@ -1,7 +1,7 @@
 /*
 Draws a set of nine dots in a new window in 6 different patterns in red white and blue
  */
-package Exam1;
+package csc142.Exam1PartB.Exam1;
 
 
 import javax.swing.*;
