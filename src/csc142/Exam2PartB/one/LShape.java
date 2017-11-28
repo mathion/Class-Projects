@@ -15,9 +15,9 @@ public class LShape extends Shapes {
         calcAreaAndPerimeter();
     }
 
-    private void calcAreaAndPerimeter(){
-        this.perimeter=2*(longHeight+longWidth);
-        this.area=(shortWidth*longHeight)+(shortHeight*(longWidth-shortWidth));
+    private void calcAreaAndPerimeter() {
+        this.perimeter = 2 * (longHeight + longWidth);
+        this.area = (shortWidth * longHeight) + (shortHeight * (longWidth - shortWidth));
     }
 
     public int getLongWidth() {

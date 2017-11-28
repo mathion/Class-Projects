@@ -8,12 +8,12 @@ public class Oval extends Shapes {
         this.radiusX = radiusX;
         this.radiusY = radiusY;
         this.area = Math.PI * radiusX * radiusY;
-        this.perimeter = calcPerimeter(radiusX,radiusY);
+        this.perimeter = calcPerimeter(radiusX, radiusY);
     }
 
-    private static double calcPerimeter(double radiusX, double radiusY){
+    private static double calcPerimeter(double radiusX, double radiusY) {
         double temp = Math.PI;
-        temp *= (3*(radiusX+radiusY)-Math.sqrt((3*radiusX+radiusY)*(radiusX+2*radiusY)));
+        temp *= (3 * (radiusX + radiusY) - Math.sqrt((3 * radiusX + radiusY) * (radiusX + 2 * radiusY)));
         return temp;
     }
 
@@ -24,7 +24,7 @@ public class Oval extends Shapes {
     public void setRadiusX(int radiusX) {
         this.radiusX = radiusX;
         this.area = Math.PI * radiusX * radiusY;
-        this.perimeter = calcPerimeter(radiusX,radiusY);
+        this.perimeter = calcPerimeter(radiusX, radiusY);
     }
 
     public int getRadiusY() {
@@ -34,7 +34,7 @@ public class Oval extends Shapes {
     public void setRadiusY(int radiusY) {
         this.radiusY = radiusY;
         this.area = Math.PI * radiusX * radiusY;
-        this.perimeter = calcPerimeter(radiusX,radiusY);
+        this.perimeter = calcPerimeter(radiusX, radiusY);
     }
 
 
