@@ -1,5 +1,7 @@
 package csc142.Exam2PartB.one;
 
+import javax.swing.*;
+
 public class Rectangle extends Shapes {
     private int width;
     private int height;
@@ -11,14 +13,18 @@ public class Rectangle extends Shapes {
         this.perimeter = 2 * (width + height);
     }
 
+    private void reCalc(){
+        this.area = width * height;
+        this.perimeter = 2 * (width + height);
+    }
+
     public int getWidth() {
         return width;
     }
 
     public void setWidth(int width) {
         this.width = width;
-        this.area = width * height;
-        this.perimeter = 2 * (width + height);
+        reCalc();
     }
 
     public int getHeight() {
@@ -27,7 +33,30 @@ public class Rectangle extends Shapes {
 
     public void setHeight(int height) {
         this.height = height;
-        this.area = width * height;
-        this.perimeter = 2 * (width + height);
+        reCalc();
+    }
+
+    public int getXOffset(){
+        return width;
+    }
+
+    public String getInfo() {
+
+        String tempString = "Width = " + getWidth() + "\n";
+        tempString += "Height = " + getHeight() + "\n";
+        tempString += "Area = " + getArea() + "\n";
+        tempString += "Perimeter = " + getPerimeter() + "\n";
+
+        return tempString;
+    }
+
+    public void drawFilled(JFrame window){
+        window.getGraphics().fillRect(10, 50, width, height);
+
+    }
+
+    public void drawUnFilled(JFrame window){
+        window.getGraphics().drawRect(10, 50, width, height);
+
     }
 }

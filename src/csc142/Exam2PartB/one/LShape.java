@@ -1,5 +1,7 @@
 package csc142.Exam2PartB.one;
 
+import javax.swing.*;
+
 public class LShape extends Shapes {
     private int longWidth;
     private int longHeight;
@@ -54,5 +56,39 @@ public class LShape extends Shapes {
     public void setShortHeight(int shortHeight) {
         this.shortHeight = shortHeight;
         calcAreaAndPerimeter();
+    }
+
+    public int getXOffset(){
+        return longWidth;
+    }
+
+    public String getInfo() {
+
+        String tempString = "Long Width = " + getLongWidth() + "\n";
+        tempString += "Long Height = " + getLongHeight() + "\n";
+        tempString += "Short Width = " + getShortWidth() + "\n";
+        tempString += "Short Height = " + getShortHeight() + "\n";
+        tempString += "Area = " + getArea() + "\n";
+        tempString += "Perimeter = " + getPerimeter() + "\n";
+
+        return tempString;
+    }
+
+    public void drawFilled(JFrame window){
+        window.getGraphics().fillRect(10, 50, getShortWidth(), getLongHeight());
+        window.getGraphics().fillRect(
+                10 + getShortWidth(),
+                50 + getLongHeight() - getShortHeight(),
+                getLongWidth() - getShortWidth(),
+                getShortHeight());
+    }
+
+    public void drawUnFilled(JFrame window){
+        window.getGraphics().drawRect(10, 50, getShortWidth(), getLongHeight());
+        window.getGraphics().drawRect(
+                10 + getShortWidth(),
+                50 + getLongHeight() - getShortHeight(),
+                getLongWidth() - getShortWidth(),
+                getShortHeight());
     }
 }
