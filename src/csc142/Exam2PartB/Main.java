@@ -25,6 +25,8 @@ public class Main {
 
         JFrame window = initializeWindow("Shapes", 1000);
 
+        Shapes shape;
+
 
         if (shapeChoice.startsWith("o")) {
 
@@ -33,48 +35,46 @@ public class Main {
             System.out.println("Radius Y? ");
             int radiusY = Integer.parseInt(scanner.nextLine());
 
-            Oval shape = new Oval(radiusX, radiusY);
+            Oval oval = new Oval(radiusX, radiusY);
 
             if (fillChoice) {
-                shape.drawFilled(window);
+                oval.drawFilled(window);
             } else {
-                shape.drawUnFilled(window);
+                oval.drawUnFilled(window);
             }
 
-            drawInfo(window, shape);
+            shape = oval;
 
 
         } else if (shapeChoice.startsWith("c")) {
 
             System.out.println("Radius? ");
             int radius = Integer.parseInt(scanner.nextLine());
-            Circle shape = new Circle(radius);
+            Circle circle = new Circle(radius);
 
             if (fillChoice) {
-                shape.drawFilled(window);
+                circle.drawFilled(window);
             } else {
-                shape.drawUnFilled(window);
+                circle.drawUnFilled(window);
             }
 
 
-            drawInfo(window, shape);
-
+            shape = circle;
 
         } else if (shapeChoice.startsWith("s")) {
 
             System.out.println("Side Length?");
             int sideLength = Integer.parseInt(scanner.nextLine());
 
-            Square shape = new Square(sideLength);
+            Square square = new Square(sideLength);
 
             if (fillChoice) {
-                shape.drawFilled(window);
+                square.drawFilled(window);
             } else {
-                shape.drawUnFilled(window);
+                square.drawUnFilled(window);
             }
 
-            drawInfo(window, shape);
-
+            shape = square;
 
         } else if (shapeChoice.startsWith("r")) {
 
@@ -83,16 +83,15 @@ public class Main {
             System.out.println("Height");
             int height = Integer.parseInt(scanner.nextLine());
 
-            Rectangle shape = new Rectangle(width, height);
+            Rectangle rectangle = new Rectangle(width, height);
 
             if (fillChoice) {
-                shape.drawFilled(window);
+                rectangle.drawFilled(window);
             } else {
-                shape.drawUnFilled(window);
+                rectangle.drawUnFilled(window);
             }
 
-            drawInfo(window, shape);
-
+            shape = rectangle;
 
         } else if (shapeChoice.startsWith("l")) {
             System.out.println("Large Width?");
@@ -105,21 +104,24 @@ public class Main {
             System.out.println("Small Height?");
             int shortHeight = Integer.parseInt(scanner.nextLine());
 
-            LShape shape = new LShape(longWidth, longHeight, shortWidth, shortHeight);
+            LShape lShape = new LShape(longWidth, longHeight, shortWidth, shortHeight);
 
             if (fillChoice) {
-                shape.drawFilled(window);
+                lShape.drawFilled(window);
 
             } else {
-                shape.drawUnFilled(window);
+                lShape.drawUnFilled(window);
             }
 
-            drawInfo(window, shape);
+            shape = lShape;
 
 
         } else {
             System.out.println("Invalid Choice");
+            shape = new Oval(0, 0);
         }
+
+        drawInfo(window, shape);
 
 
     }
@@ -138,7 +140,7 @@ public class Main {
     private static void drawInfo(JFrame window, Shapes shape) {
         String[] info = shape.getInfo().split("\n");
         for (int i = 0; i < info.length; i++) {
-            window.getGraphics().drawString(info[i], shape.getXOffset() + 10, 60 + (i * 10));
+            window.getGraphics().drawString(info[i], shape.getXOffset() + 15, 60 + (i * 10));
         }
     }
 }
