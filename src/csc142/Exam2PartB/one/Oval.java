@@ -3,54 +3,56 @@ package csc142.Exam2PartB.one;
 
 import javax.swing.*;
 
-public class Oval extends Shapes {
-    private int radiusX;
-    private int radiusY;
+public class Oval extends Shape {
+    private int diameterX;
+    private int diameterY;
 
-    public Oval(int radiusX, int radiusY) {
-        this.radiusX = radiusX;
-        this.radiusY = radiusY;
-        this.area = calcArea(radiusX, radiusY);
-        this.perimeter = calcPerimeter(radiusX, radiusY);
+    public Oval(int diameterX, int diameterY) {
+        this.diameterX = diameterX;
+        this.diameterY = diameterY;
+        this.area = calcArea(diameterX, diameterY);
+        this.perimeter = calcPerimeter(diameterX, diameterY);
     }
 
-    public static double calcPerimeter(double radiusX, double radiusY) {
+
+    public static double calcPerimeter(double diameterX, double diameterY) {
         double temp = Math.PI;
-        temp *= (3 * (radiusX + radiusY) - Math.sqrt((3 * radiusX + radiusY) * (radiusX + 2 * radiusY)));
+        temp *= (3 * (diameterX / 2.0 + diameterY / 2.0) - Math.sqrt((3 * diameterX / 2.0 + diameterY / 2.0) * (diameterX / 2.0 + 2 * diameterY / 2.0)));
         return temp;
     }
 
     public static double calcArea(double radiusX, double radiusY) {
-        return Math.PI * radiusX * radiusY;
+        return Math.PI * radiusX / 2.0 * radiusY / 2.0;
     }
 
+    //reCalc used to change the area and perimeter whenever the diameter changes
     private void reCalc() {
-        this.area = calcArea(radiusX, radiusY);
-        this.perimeter = calcPerimeter(radiusX, radiusY);
+        this.area = calcArea(diameterX, diameterY);
+        this.perimeter = calcPerimeter(diameterX, diameterY);
     }
 
-    public int getRadiusX() {
-        return radiusX;
+    public int getDiameterX() {
+        return diameterX;
     }
 
-    public void setRadiusX(int radiusX) {
-        this.radiusX = radiusX;
+    public void setDiameterX(int diameterX) {
+        this.diameterX = diameterX;
         reCalc();
     }
 
-    public int getRadiusY() {
-        return radiusY;
+    public int getDiameterY() {
+        return diameterY;
     }
 
-    public void setRadiusY(int radiusY) {
-        this.radiusY = radiusY;
+    public void setDiameterY(int diameterY) {
+        this.diameterY = diameterY;
         reCalc();
     }
 
     public String getInfo() {
 
-        String tempString = "Radius X = " + getRadiusX() + "\n";
-        tempString += "Radius Y = " + getRadiusY() + "\n";
+        String tempString = "Diameter X = " + getDiameterX() + "\n";
+        tempString += "Diameter Y = " + getDiameterY() + "\n";
         tempString += "Area = " + getArea() + "\n";
         tempString += "Perimeter = " + getPerimeter() + "\n";
 
@@ -58,16 +60,18 @@ public class Oval extends Shapes {
     }
 
     public int getXOffset() {
-        return radiusX;
+        return diameterX;
     }
 
-    public void drawFilled(JFrame window){
-        window.getGraphics().fillOval(10, 50, getRadiusX(), getRadiusY());
+    public void drawFilled(JFrame window) {
+        //drawn at 10,50 to give space from edges
+        window.getGraphics().fillOval(10, 50, getDiameterX(), getDiameterY());
 
     }
 
-    public void drawUnFilled(JFrame window){
-        window.getGraphics().drawOval(10, 50, getRadiusX(), getRadiusY());
+    public void drawUnFilled(JFrame window) {
+        //drawn at 10,50 to give space from edges
+        window.getGraphics().drawOval(10, 50, getDiameterX(), getDiameterY());
 
     }
 

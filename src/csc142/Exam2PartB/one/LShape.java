@@ -2,12 +2,14 @@ package csc142.Exam2PartB.one;
 
 import javax.swing.*;
 
-public class LShape extends Shapes {
+public class LShape extends Shape {
     private int longWidth;
     private int longHeight;
     private int shortWidth;
     private int shortHeight;
 
+    //L shape is made by taking a rectangle with height and width of longHeight and longWidth and removing a rectangle
+    //from the top right corner.
 
     public LShape(int longWidth, int longHeight, int shortWidth, int shortHeight) {
         this.longWidth = longWidth;
@@ -73,6 +75,8 @@ public class LShape extends Shapes {
 
         return tempString;
     }
+
+    //to draw a L shape two rectangles are drawn
 
     public void drawFilled(JFrame window){
         window.getGraphics().fillRect(10, 50, getShortWidth(), getLongHeight());

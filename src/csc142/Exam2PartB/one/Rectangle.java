@@ -2,7 +2,9 @@ package csc142.Exam2PartB.one;
 
 import javax.swing.*;
 
-public class Rectangle extends Shapes {
+//the same as Oval but with different names for variables and different method used to calc area and perimeter
+
+public class Rectangle extends Shape {
     private int width;
     private int height;
 

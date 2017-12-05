@@ -2,7 +2,9 @@ package csc142.Exam2PartB.one;
 
 import javax.swing.*;
 
-public abstract class Shapes {
+//Abstract shape class
+
+public abstract class Shape {
     protected double perimeter;
     protected double area;
 
@@ -16,6 +18,7 @@ public abstract class Shapes {
 
     public abstract String getInfo();
 
+    //XOffset is used for placing info text next to the shape
     public abstract int getXOffset();
 
     public abstract void drawFilled(JFrame window);
